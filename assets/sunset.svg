@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e0416"/>
+      <stop offset="45%" stop-color="#2d081f"/>
+      <stop offset="75%" stop-color="#721a3f"/>
+      <stop offset="100%" stop-color="#d6686d"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe6b8" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#f5a6b9" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#721a3f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="450" fill="url(#skyGrad)"/>
+
+  <!-- Sun / Twilight Glow -->
+  <circle cx="300" cy="270" r="140" fill="url(#sunGlow)"/>
+
+  <!-- Stars -->
+  <g fill="#fff" opacity="0.75">
+    <circle cx="90" cy="60" r="1.5"/>
+    <circle cx="150" cy="110" r="1.2"/>
+    <circle cx="240" cy="45" r="1.8"/>
+    <circle cx="380" cy="70" r="1.4"/>
+    <circle cx="480" cy="50" r="2.2" filter="url(#glow)"/>
+    <circle cx="530" cy="130" r="1.5"/>
+    <circle cx="120" cy="180" r="1.2"/>
+    <circle cx="440" cy="160" r="1.6"/>
+  </g>
+
+  <!-- Crescent Moon -->
+  <path d="M 470 90 A 24 24 0 1 0 495 125 A 20 20 0 1 1 470 90 Z" fill="#fff5ea" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- Mountains / Horizon -->
+  <path d="M 0 350 Q 150 280 300 330 T 600 310 L 600 450 L 0 450 Z" fill="#200618" opacity="0.95"/>
+  <path d="M 0 380 Q 200 330 400 370 T 600 360 L 600 450 L 0 450 Z" fill="#11030e"/>
+
+  <!-- Silhouette Couple gazing together -->
+  <g fill="#070106">
+    <!-- Hill crest -->
+    <path d="M 200 450 Q 300 385 400 450 Z"/>
+    <!-- Person 1 -->
+    <ellipse cx="282" cy="382" rx="10" ry="11"/>
+    <path d="M 270 395 C 270 390, 294 390, 294 395 L 297 445 L 268 445 Z"/>
+    <!-- Person 2 leaning softly -->
+    <ellipse cx="305" cy="385" rx="9" ry="10"/>
+    <path d="M 295 396 C 295 391, 318 391, 318 396 L 320 445 L 294 445 Z"/>
+  </g>
+
+  <!-- Glowing Floating Hearts in air -->
+  <g fill="#f5a6b9" opacity="0.8" filter="url(#glow)">
+    <path d="M 330 355 C 330 350, 323 350, 323 355 C 323 360, 330 363, 330 366 C 330 363, 337 360, 337 355 C 337 350, 330 350, 330 355 Z" transform="scale(1.4) translate(-90, -90)"/>
+    <path d="M 260 340 C 260 336, 254 336, 254 340 C 254 344, 260 347, 260 350 C 260 347, 266 344, 266 340 C 266 336, 260 336, 260 340 Z"/>
+  </g>
+</svg>

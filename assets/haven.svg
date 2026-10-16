@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="roomGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14061e"/>
+      <stop offset="70%" stop-color="#2a081c"/>
+      <stop offset="100%" stop-color="#4a0f28"/>
+    </linearGradient>
+    <radialGradient id="candleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe6b8" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#f5a6b9" stop-opacity="0.7"/>
+      <stop offset="75%" stop-color="#7a183c" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#14061e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softWarmGlow">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="450" fill="url(#roomGrad)"/>
+
+  <!-- Warm Arch Window Looking Out at Starlit Sky -->
+  <path d="M 180 80 Q 300 15 420 80 L 420 330 L 180 330 Z" fill="#09020f" stroke="rgba(232, 180, 184, 0.4)" stroke-width="2"/>
+  
+  <!-- Stars in Window -->
+  <g fill="#fff" opacity="0.8">
+    <circle cx="230" cy="120" r="1.5"/>
+    <circle cx="280" cy="95" r="2" filter="url(#softWarmGlow)"/>
+    <circle cx="350" cy="130" r="1.5"/>
+    <circle cx="390" cy="110" r="1.2"/>
+    <circle cx="250" cy="180" r="1.8"/>
+    <circle cx="320" cy="160" r="2.2" filter="url(#softWarmGlow)"/>
+    <circle cx="380" cy="190" r="1.5"/>
+  </g>
+
+  <!-- Window Frame Panes -->
+  <line x1="300" y1="50" x2="300" y2="330" stroke="rgba(232, 180, 184, 0.3)" stroke-width="2"/>
+  <line x1="180" y1="190" x2="420" y2="190" stroke="rgba(232, 180, 184, 0.3)" stroke-width="2"/>
+
+  <!-- Window Sill -->
+  <rect x="160" y="330" width="280" height="14" rx="3" fill="#30091c" stroke="rgba(232, 180, 184, 0.4)" stroke-width="1.5"/>
+
+  <!-- Warm Candle Light on Sill -->
+  <circle cx="300" cy="295" r="95" fill="url(#candleGlow)"/>
+  
+  <!-- Candle Holder & Flame -->
+  <rect x="294" y="305" width="12" height="25" rx="2" fill="#fff5ea"/>
+  <path d="M 300 290 Q 305 298 300 305 Q 295 298 300 290 Z" fill="#ffe299" filter="url(#softWarmGlow)"/>
+  
+  <!-- Two Coffee/Tea Cups sitting together on Sill -->
+  <path d="M 235 315 L 240 330 L 255 330 L 260 315 Z" fill="#e8b4b8" opacity="0.9"/>
+  <path d="M 265 315 L 270 330 L 285 330 L 290 315 Z" fill="#ffd6e0" opacity="0.9"/>
+
+  <!-- Gentle Steam Hearts rising -->
+  <g fill="#f5a6b9" opacity="0.6" filter="url(#softWarmGlow)">
+    <path d="M 248 295 C 248 292, 244 292, 244 295 C 244 298, 248 300, 248 302 C 248 300, 252 298, 252 295 C 252 292, 248 292, 248 295 Z" transform="scale(0.8) translate(60, 60)"/>
+    <path d="M 278 285 C 278 282, 274 282, 274 285 C 274 288, 278 290, 278 292 C 278 290, 282 288, 282 285 C 282 282, 278 282, 278 285 Z" transform="scale(0.9) translate(30, 20)"/>
+  </g>
+
+  <!-- Cozy Foreground Shadows -->
+  <rect x="0" y="410" width="600" height="40" fill="#0c020b"/>
+</svg>

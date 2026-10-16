@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Whatever happens, it's always YOU and ME ❤️</title>
+  
+  <meta name="description" content="An eternal romantic vow and safe haven made with all my heart.">
+  <meta name="theme-color" content="#0b0410">
+
+  <!-- Favicon Heart -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+  <!-- Ambient Physics Canvas (Rose petals, stardust, glowing embers) -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Floating Action Bar -->
+  <aside class="top-action-bar" aria-label="Quick Actions">
+    <button class="icon-action-btn js-locket-trigger" aria-label="Open Secret Heart Locket" title="Secret Confession">
+      <span class="pulse-glow"></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Floating Audio Player Widget (Starts OFF by default) -->
+  <div class="floating-audio-widget" role="region" aria-label="Background Music Controller">
+    <button id="music-toggle-btn" class="audio-btn-circle" aria-label="Toggle background music" aria-pressed="false">
+      <svg class="play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <div class="audio-info">
+      <span class="audio-title">Celestial Piano</span>
+      <span id="music-status-text" class="audio-status">Music: Paused</span>
+    </div>
+    <div id="music-bars" class="audio-bars" aria-hidden="true">
+      <div class="audio-bar"></div>
+      <div class="audio-bar"></div>
+      <div class="audio-bar"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       1. GATEKEEPER OPENING SCREEN
+       ========================================================= -->
+  <div id="gatekeeper-screen" class="gatekeeper-screen" role="dialog" aria-modal="true" aria-label="Welcome screen">
+    <div class="gatekeeper-inner">
+      <div class="gate-locket-icon" aria-hidden="true">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      <span class="gate-subtitle">A safe haven, an eternal promise, a love without end</span>
+      <h1 id="gatekeeper-quote" class="gate-quote">Whatever happens… It's still YOU. It's still US. It's ALWAYS US.</h1>
+      <p class="gate-welcome-note">Take a gentle breath, leave the noisy world outside, and step into our forever sanctuary.</p>
+      <button id="gatekeeper-btn" class="btn-primary-glow" aria-label="Open my heart, baby">
+        <span class="btn-sparkle">✦</span>
+        <span class="btn-text">Open my heart, baby</span>
+        <span class="btn-sparkle">✦</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MAIN JOURNEY (REVEALED AFTER GATEKEEPER)
+       ========================================================= -->
+  <main id="main-journey" class="main-wrapper content-hidden" aria-hidden="true">
+
+    <!-- HERO & ETERNAL LOVE LETTER -->
+    <header class="hero-section">
+      <div class="hero-super-title">To my sweetest love,</div>
+      <h2 class="hero-main-title"><span class="gold-gradient-text">You Are My Forever Home</span></h2>
+      <div class="hero-quote-bar">
+        <span class="js-couples-tagline">“Whatever happens, it's always going to be YOU and ME.”</span>
+      </div>
+
+      <!-- Love Letter Parchment -->
+      <article class="love-letter-wrapper">
+        <div class="parchment-card glass-panel">
+          <div class="letter-top-crest">
+            <span class="crest-symbol">❦</span>
+            <span class="crest-date">Written in the stars • For eternity</span>
+            <span class="crest-symbol">❦</span>
+          </div>
+
+          <h3 class="letter-salutation">My Dearest <span class="js-her-nickname">Baby</span>,</h3>
+          
+          <div id="love-letter-body" class="letter-body">
+            <!-- Dynamic paragraphs populated from config.js -->
+          </div>
+
+          <div class="letter-signoff">
+            <div class="letter-closing">Forever your safe haven and your biggest fan,</div>
+            <div class="letter-signature js-his-name">Forever Yours ❤️</div>
+          </div>
+        </div>
+      </article>
+    </header>
+
+    <!-- SECTION 2: THE FOUR PILLARS OF US -->
+    <section id="pillars" aria-labelledby="pillars-heading">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="dot"></span>
+          <span>Our Unbreakable Foundation</span>
+        </div>
+        <h2 id="pillars-heading" class="section-title">How We Stand Together</h2>
+        <p class="section-desc">Love isn't merely an emotion that swept over us—it is an intentional, everyday vow we live together across every season.</p>
+      </div>
+
+      <div id="pillars-grid" class="pillars-grid">
+        <!-- Rendered dynamically from config.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 3: TEN REASONS YOU ARE MY FOREVER -->
+    <section id="reasons" aria-labelledby="reasons-heading">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="dot"></span>
+          <span>Endless Devotion</span>
+        </div>
+        <h2 id="reasons-heading" class="section-title">Ten Reasons You Hold My Entire Heart</h2>
+        <p class="section-desc">Just ten of the ten million reasons why loving you is the easiest, most natural thing my soul will ever do.</p>
+      </div>
+
+      <div id="reasons-grid" class="reasons-grid">
+        <!-- Rendered dynamically from config.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 3.5: CHERISHED MOMENTS POLAROID GALLERY -->
+    <section id="memories" aria-labelledby="memories-heading">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="dot"></span>
+          <span>Our Visual Journey</span>
+        </div>
+        <h2 id="memories-heading" class="section-title">Cherished Moments in Time</h2>
+        <p class="section-desc">Snapshots of our journey together—simple, profound, and etched forever into my soul.</p>
+      </div>
+
+      <div id="memories-grid" class="memories-grid">
+        <!-- Rendered dynamically from config.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 4: SAFE HARBOR — WHEN WE FIGHT -->
+    <section id="safe-harbor" aria-labelledby="harbor-heading">
+      <div class="safe-harbor-panel">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <div class="section-tag">
+            <span class="dot"></span>
+            <span>Our Emergency Comfort Capsule</span>
+          </div>
+          <h2 id="harbor-heading" class="section-title">Read This When We Fight or When Things Hurt</h2>
+          <p class="section-desc">A gentle sanctuary for heavy moments. Whenever the world is loud or hearts feel fragile, pause right here.</p>
+        </div>
+
+        <!-- Central Grounding Rule -->
+        <div class="harbor-grounding-rule">
+          <p class="grounding-rule-text">It is NEVER Me vs. You. It is YOU & ME vs. THE PROBLEM.</p>
+        </div>
+
+        <div class="fight-letter-body">
+          <p>Hey my love, if you are reading this right now, chances are our hearts feel a little heavy, words might have been spoken in frustration, or silence is currently feeling loud.</p>
+          <p>I want you to pause right here. Close your eyes for three seconds. Take a deep, gentle breath with me.</p>
+          <p>Remember this: No misunderstanding, no bad day, and no disagreement is bigger than our love. I am not your enemy, and you are never mine. We are on the exact same team.</p>
+          <p>Even if we are currently upset, my love for you has not decreased by a single percent. We are two humans learning how to love each other better. Come here, let's lower our shields, hold hands, and fix this together.</p>
+        </div>
+
+        <!-- 4-7-8 Breathing Tool -->
+        <div class="breathing-tool-container">
+          <div class="breathing-ring-wrapper">
+            <div id="breathing-ring" class="breathing-ring">
+              <span class="breathing-inner-heart">🤍</span>
+            </div>
+          </div>
+          <div id="breathing-instruction" class="breathing-label">Breathe in gently...</div>
+        </div>
+
+        <!-- Grounding Rules Grid -->
+        <div id="fight-rules-grid" class="fight-rules-grid">
+          <!-- Rendered dynamically from config.js -->
+        </div>
+
+        <div class="safe-harbor-action">
+          <button id="virtual-hug-btn" class="btn-primary-glow" aria-label="Send a virtual warm hug">
+            <span class="btn-sparkle">🫂</span>
+            <span>Take A Virtual Warm Hug</span>
+            <span class="btn-sparkle">✨</span>
+          </button>
+          <div id="hug-toast" class="hug-toast" role="alert">I'm holding you close right now, sweetheart. Everything will be okay. ❤️</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE SURPRISES & KEEPSAKES -->
+    <section id="surprises" aria-labelledby="surprises-heading">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="dot"></span>
+          <span>Hidden Magic</span>
+        </div>
+        <h2 id="surprises-heading" class="section-title">Romantic Keepsakes & Surprises</h2>
+        <p class="section-desc">Interactive little moments crafted just for you to explore whenever you need a smile.</p>
+      </div>
+
+      <div class="surprises-container">
+        <!-- 3D Wax Seal Love Envelope -->
+        <div class="envelope-showcase glass-panel" style="padding: 2.5rem 1.5rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">The Wax-Sealed Note</h3>
+          <p style="font-size: 0.9rem; color: var(--color-gold-rose); margin-bottom: 1rem;">Click the wax seal to break the fold & read inside</p>
+          
+          <div class="envelope-wrapper">
+            <div id="romantic-envelope" class="romantic-envelope" role="region" aria-label="Interactive folded envelope">
+              <div class="envelope-flap"></div>
+              <div id="envelope-wax-seal" class="wax-seal" role="button" tabindex="0" aria-label="Break wax seal and open envelope">
+                ❦
+              </div>
+              <div class="envelope-pocket"></div>
+              <div class="envelope-letter">
+                <div class="envelope-letter-title">To My Whole Heart,</div>
+                <p id="envelope-letter-text">
+                  If I had a flower for every time I thought of you, I would walk through an endless garden forever. You are my once-in-a-lifetime.
+                </p>
+                <button id="envelope-close-btn" class="envelope-close-btn">Fold & Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Glowing Romantic Message Jar -->
+        <div class="jar-showcase glass-panel" style="padding: 2.5rem 1.5rem;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">The Love Note Jar</h3>
+          <p style="font-size: 0.9rem; color: var(--color-gold-rose); margin-bottom: 1rem;">Tap the crystal jar to draw a fresh love note</p>
+          
+          <div id="message-jar" class="message-jar" role="button" tabindex="0" aria-label="Tap to draw a romantic love note">
+            <div class="jar-fireflies">✨</div>
+          </div>
+
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Filled with sweet whispers and endless affirmations</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: THE CINEMATIC FOREVER PROMISE ENDING -->
+    <section id="forever" class="ending-section" aria-labelledby="forever-heading">
+      <div class="section-tag">
+        <span class="dot"></span>
+        <span>Till The End Of Time</span>
+      </div>
+
+      <h2 id="forever-heading" class="ending-climax-quote">
+        “I LOVE YOU MADLY. I LOVE YOU CRAZILY. I LOVE YOU WITH MY WHOLE HEART. IT'S YOU. IT'S ME. IT'S US. ❤️”
+      </h2>
+
+      <p class="ending-promise-text">
+        Through every joy and every trial, through quiet sunsets and roaring storms, from this day to the end of time, my heart is completely, irrevocably yours.
+      </p>
+
+      <!-- Live Anniversary Counter -->
+      <!-- <div class="timer-container">
+        <div id="timer-date-display" class="timer-date-subtitle">Counting every heartbeat together</div>
+        <div class="timer-grid">
+          <div class="timer-unit-card glass-panel">
+            <span id="timer-days" class="timer-val">00</span>
+            <span class="timer-label">Days</span>
+          </div>
+          <div class="timer-unit-card glass-panel">
+            <span id="timer-hours" class="timer-val">00</span>
+            <span class="timer-label">Hours</span>
+          </div>
+          <div class="timer-unit-card glass-panel">
+            <span id="timer-mins" class="timer-val">00</span>
+            <span class="timer-label">Minutes</span>
+          </div>
+          <div class="timer-unit-card glass-panel">
+            <span id="timer-secs" class="timer-val">00</span>
+            <span class="timer-label">Seconds</span>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Seal Promise Button -->
+      <div style="margin-top: 2rem;">
+        <button id="seal-promise-btn" class="btn-primary-glow seal-promise-btn" aria-label="Seal our eternal promise forever">
+          <span class="btn-sparkle">💍</span>
+          <span>Seal Our Eternal Promise</span>
+          <span class="btn-sparkle">❤️</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       MODALS
+       ========================================================= -->
+
+  <!-- 1. Secret Heart Locket Confession Modal -->
+  <div id="secret-locket-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="locket-modal-title">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-icon-badge">🗝️💖</div>
+      <h3 id="locket-modal-title" class="modal-title">My Secret Confession</h3>
+      <p id="secret-locket-text" class="modal-body-text">
+        Sometimes when you fall asleep before me, I just lay there listening to the rhythm of your breathing. And in those quiet moments, I whisper a thank you to the universe for trusting me to love someone as precious and beautiful as you.
+      </p>
+      <button class="btn-primary-glow modal-close-btn-action" style="padding: 0.75rem 2rem;">Keep Safe In My Heart</button>
+    </div>
+  </div>
+
+  <!-- 2. Message Jar Note Modal -->
+  <div id="jar-note-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="jar-modal-title">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-icon-badge">💌</div>
+      <h3 id="jar-modal-title" class="modal-title">A Love Note Just For You</h3>
+      <p id="jar-note-display" class="modal-body-text" style="font-size: 1.35rem; color: #fff; min-height: 4rem;">
+        <!-- Filled dynamically -->
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button id="pull-another-note-btn" class="btn-primary-glow" style="padding: 0.75rem 1.8rem;">Pull Another Note ✨</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Forever Promise Certificate Modal -->
+  <div id="promise-cert-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="cert-title">
+    <div class="modal-content" style="max-width: 640px;">
+      <button class="modal-close-btn" aria-label="Close certificate">&times;</button>
+      <div class="cert-frame">
+        <h3 id="cert-title" class="cert-header">Our Sealed Eternal Vow</h3>
+        <p style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gold-rose);">Sanctuary of Infinite Love</p>
+        <div class="cert-names">
+          <span class="js-her-name">My Dearest Love</span> & <span class="js-his-name">Forever Yours</span>
+        </div>
+        <p class="cert-vow">
+          “Whatever happens, through every season, across every distance, through quiet laughter and turbulent storms, it is always going to be YOU and ME.”
+        </p>
+        <div class="cert-stamp">
+          ❤️
+        </div>
+        <p style="font-size: 0.8rem; color: var(--color-gold-rose); margin-top: 1rem; letter-spacing: 0.1em; text-transform: uppercase;">
+          Sealed & Protected for Eternity
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="scripts/canvas.js"></script>
+  <script src="scripts/audio.js"></script>
+  <script src="scripts/main.js"></script>
+
+  <script>
+    // Wire modal-close-btn-action to close the closest modal overlay
+    document.querySelectorAll('.modal-close-btn-action').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const overlay = btn.closest('.modal-overlay');
+        if (overlay) {
+          overlay.classList.remove('active');
+          overlay.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('modal-open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

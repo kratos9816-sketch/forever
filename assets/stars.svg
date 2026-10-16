@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cosmicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07020d"/>
+      <stop offset="50%" stop-color="#190729"/>
+      <stop offset="100%" stop-color="#3d0c24"/>
+    </linearGradient>
+    <radialGradient id="nebulaPink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f5a6b9" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#7a183c" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#07020d" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glowStardust">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Cosmic Background -->
+  <rect width="600" height="450" fill="url(#cosmicGrad)"/>
+  <circle cx="300" cy="225" r="210" fill="url(#nebulaPink)"/>
+
+  <!-- Celestial Constellation Lines -->
+  <g stroke="rgba(245, 166, 185, 0.4)" stroke-width="1.2" stroke-dasharray="3,3">
+    <line x1="120" y1="80" x2="220" y2="130"/>
+    <line x1="220" y1="130" x2="300" y2="90"/>
+    <line x1="300" y1="90" x2="390" y2="140"/>
+    <line x1="390" y1="140" x2="480" y2="80"/>
+    <line x1="300" y1="90" x2="300" y2="180"/>
+  </g>
+
+  <!-- Constellation Stars -->
+  <g fill="#ffe6f0" filter="url(#glowStardust)">
+    <circle cx="120" cy="80" r="3"/>
+    <circle cx="220" cy="130" r="2.5"/>
+    <circle cx="300" cy="90" r="4.5"/>
+    <circle cx="390" cy="140" r="2.5"/>
+    <circle cx="480" cy="80" r="3.5"/>
+    <circle cx="300" cy="180" r="3"/>
+    <circle cx="180" cy="240" r="2"/>
+    <circle cx="420" cy="250" r="2"/>
+  </g>
+
+  <!-- Two Holding Hands Graphic in Silhouette / Rose Gold -->
+  <g transform="translate(180, 180) scale(0.9)">
+    <!-- Aura of connection -->
+    <ellipse cx="130" cy="120" rx="90" ry="70" fill="rgba(245, 166, 185, 0.15)" filter="url(#glowStardust)"/>
+    
+    <!-- Stylized Hands Intertwined -->
+    <path d="M 10 150 Q 80 130 110 115 Q 130 105 145 110 Q 155 115 160 130 Q 150 145 125 155 L 70 180 Z" fill="#240715" stroke="rgba(232, 180, 184, 0.5)" stroke-width="1.5"/>
+    <path d="M 250 150 Q 180 130 150 115 Q 130 105 115 110 Q 105 115 100 130 Q 110 145 135 155 L 190 180 Z" fill="#30091c" stroke="rgba(245, 166, 185, 0.6)" stroke-width="1.5"/>
+    
+    <!-- Central Heart Star -->
+    <g transform="translate(130, 115) scale(1.6)" filter="url(#glowStardust)">
+      <path d="M 0 -8 C 0 -12, -7 -12, -7 -7 C -7 -2, 0 3, 0 6 C 0 3, 7 -2, 7 -7 C 7 -12, 0 -12, 0 -8 Z" fill="#ffb8cc"/>
+    </g>
+  </g>
+
+  <!-- Floating Sparkles -->
+  <g fill="#fbe3d5" opacity="0.8">
+    <polygon points="280,330 283,337 290,340 283,343 280,350 277,343 270,340 277,337"/>
+    <polygon points="340,310 342,315 347,317 342,319 340,324 338,319 333,317 338,315"/>
+    <polygon points="220,170 222,174 226,176 222,178 220,182 218,178 214,176 218,174"/>
+  </g>
+</svg>
